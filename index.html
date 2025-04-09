@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Professional Resume Builder</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><i class="fas fa-file-alt"></i> Professional Resume Builder</h1>
+      <p class="subtitle">Create an impressive resume in minutes</p>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-button active" data-tab="personal">Personal Info</button>
+      <button class="tab-button" data-tab="education">Education</button>
+      <button class="tab-button" data-tab="experience">Experience</button>
+      <button class="tab-button" data-tab="skills">Skills</button>
+      <button class="tab-button" data-tab="projects">Projects</button>
+      <button class="tab-button" data-tab="additional">Additional Info</button>
+    </div>
+
+    <form id="resume-form">
+      <!-- Personal Info Tab -->
+      <div class="tab-content active" id="personal-tab">
+        <h2>Personal Information</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name"><i class="fas fa-user"></i> Full Name</label>
+            <input type="text" id="name" placeholder="John Doe" required />
+          </div>
+          <div class="form-group">
+            <label for="title"><i class="fas fa-briefcase"></i> Professional Title</label>
+            <input type="text" id="title" placeholder="Software Developer" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email"><i class="fas fa-envelope"></i> Email</label>
+            <input type="email" id="email" placeholder="johndoe@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+            <input type="text" id="phone" placeholder="123-456-7890" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="location"><i class="fas fa-map-marker-alt"></i> Location</label>
+            <input type="text" id="location" placeholder="New York, NY" />
+          </div>
+          <div class="form-group">
+            <label for="website"><i class="fas fa-globe"></i> Website/Portfolio</label>
+            <input type="url" id="website" placeholder="https://yourportfolio.com" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="summary"><i class="fas fa-comment"></i> Professional Summary</label>
+          <textarea id="summary" placeholder="A brief summary of your professional background and career goals..." rows="4"></textarea>
+        </div>
+
+        <div class="form-nav">
+          <button type="button" class="next-tab">Next: Education <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Education Tab -->
+      <div class="tab-content" id="education-tab">
+        <h2>Education Details</h2>
+        <div id="education-entries">
+          <div class="education-entry">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="degree"><i class="fas fa-graduation-cap"></i> Degree/Certificate</label>
+                <input type="text" class="degree" placeholder="B.Sc. Computer Science" />
+              </div>
+              <div class="form-group">
+                <label for="institution"><i class="fas fa-university"></i> Institution</label>
+                <input type="text" class="institution" placeholder="University of Technology" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="edu-start-date"><i class="fas fa-calendar"></i> Start Date</label>
+                <input type="month" class="edu-start-date" />
+              </div>
+              <div class="form-group">
+                <label for="edu-end-date"><i class="fas fa-calendar-check"></i> End Date</label>
+                <input type="month" class="edu-end-date" />
+                <div class="checkbox-group">
+                  <input type="checkbox" class="edu-current" id="edu-current-1" />
+                  <label for="edu-current-1">Currently Studying</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="edu-description"><i class="fas fa-align-left"></i> Description (Optional)</label>
+              <textarea class="edu-description" placeholder="Relevant coursework, achievements, etc." rows="3"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" id="add-education" class="add-button"><i class="fas fa-plus"></i> Add Another Education</button>
+
+        <div class="form-nav">
+          <button type="button" class="prev-tab"><i class="fas fa-arrow-left"></i> Previous</button>
+          <button type="button" class="next-tab">Next: Experience <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Experience Tab -->
+      <div class="tab-content" id="experience-tab">
+        <h2>Work Experience</h2>
+        <div id="experience-entries">
+          <div class="experience-entry">
+            <div class="form-row">
+              <div class="form-group">
+                <label><i class="fas fa-briefcase"></i> Job Title</label>
+                <input type="text" class="job-title" placeholder="Frontend Developer" />
+              </div>
+              <div class="form-group">
+                <label><i class="fas fa-building"></i> Company</label>
+                <input type="text" class="company" placeholder="XYZ Corporation" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label><i class="fas fa-calendar"></i> Start Date</label>
+                <input type="month" class="exp-start-date" />
+              </div>
+              <div class="form-group">
+                <label><i class="fas fa-calendar-check"></i> End Date</label>
+                <input type="month" class="exp-end-date" />
+                <div class="checkbox-group">
+                  <input type="checkbox" class="exp-current" id="exp-current-1" />
+                  <label for="exp-current-1">Currently Working</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label><i class="fas fa-tasks"></i> Job Responsibilities & Achievements</label>
+              <textarea class="job-description" placeholder="• Developed responsive web applications using React.js&#10;• Improved site performance by 40% through code optimization&#10;• Collaborated with UX team to implement new design system" rows="4"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" id="add-experience" class="add-button"><i class="fas fa-plus"></i> Add Another Experience</button>
+
+        <div class="form-nav">
+          <button type="button" class="prev-tab"><i class="fas fa-arrow-left"></i> Previous</button>
+          <button type="button" class="next-tab">Next: Skills <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Skills Tab -->
+      <div class="tab-content" id="skills-tab">
+        <h2>Skills & Expertise</h2>
+        
+        <div class="form-group">
+          <label><i class="fas fa-tools"></i> Technical Skills</label>
+          <div class="skill-input-container">
+            <input type="text" id="skill-input" placeholder="Type a skill and press Enter (e.g., JavaScript)" />
+          </div>
+          <div id="skills-container" class="skills-badges"></div>
+        </div>
+
+        <div class="form-group">
+          <label><i class="fas fa-language"></i> Languages</label>
+          <div id="languages-entries">
+            <div class="language-entry form-row">
+              <div class="form-group">
+                <input type="text" class="language-name" placeholder="English" />
+              </div>
+              <div class="form-group">
+                <select class="language-level">
+                  <option value="">-- Proficiency --</option>
+                  <option value="Native">Native</option>
+                  <option value="Fluent">Fluent</option>
+                  <option value="Advanced">Advanced</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Basic">Basic</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <button type="button" id="add-language" class="add-button"><i class="fas fa-plus"></i> Add Language</button>
+        </div>
+
+        <div class="form-nav">
+          <button type="button" class="prev-tab"><i class="fas fa-arrow-left"></i> Previous</button>
+          <button type="button" class="next-tab">Next: Projects <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Projects Tab -->
+      <div class="tab-content" id="projects-tab">
+        <h2>Projects</h2>
+        <div id="project-entries">
+          <div class="project-entry">
+            <div class="form-row">
+              <div class="form-group">
+                <label><i class="fas fa-project-diagram"></i> Project Name</label>
+                <input type="text" class="project-name" placeholder="E-commerce Website" />
+              </div>
+              <div class="form-group">
+                <label><i class="fas fa-link"></i> Project URL (Optional)</label>
+                <input type="url" class="project-url" placeholder="https://github.com/username/project" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label><i class="fas fa-calendar-alt"></i> Date</label>
+              <input type="text" class="project-date" placeholder="Jan 2023 - Mar 2023" />
+            </div>
+
+            <div class="form-group">
+              <label><i class="fas fa-info-circle"></i> Project Description</label>
+              <textarea class="project-description" placeholder="• Built a full-stack e-commerce platform with React & Node.js&#10;• Implemented secure payment processing with Stripe API&#10;• Added inventory management system for store owners" rows="4"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" id="add-project" class="add-button"><i class="fas fa-plus"></i> Add Another Project</button>
+
+        <div class="form-nav">
+          <button type="button" class="prev-tab"><i class="fas fa-arrow-left"></i> Previous</button>
+          <button type="button" class="next-tab">Next: Additional Info <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Additional Info Tab -->
+      <div class="tab-content" id="additional-tab">
+        <h2>Additional Information</h2>
+        
+        <div class="form-group">
+          <label><i class="fas fa-certificate"></i> Certifications</label>
+          <textarea id="certifications" placeholder="• AWS Certified Developer - Associate (2023)&#10;• Google Professional Cloud Developer (2022)" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label><i class="fas fa-users"></i> Volunteer Experience</label>
+          <textarea id="volunteer" placeholder="• Volunteer Web Developer, Non-profit Organization (2021-Present)&#10;• Mentor, Code.org (2020-2022)" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label><i class="fas fa-medal"></i> Awards & Achievements</label>
+          <textarea id="awards" placeholder="• 1st Place, Hackathon 2023&#10;• Dean's List, University of Technology (2019-2021)" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label><i class="fas fa-heart"></i> Interests (Optional)</label>
+          <textarea id="interests" placeholder="Photography, Hiking, Chess, Open-source Contributing" rows="2"></textarea>
+        </div>
+
+        <div class="form-nav">
+          <button type="button" class="prev-tab"><i class="fas fa-arrow-left"></i> Previous</button>
+          <button type="submit" class="generate-button"><i class="fas fa-file-export"></i> Generate Resume</button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Resume Templates -->
+    <div class="templates-container hidden">
+      <h2>Choose a Template</h2>
+      <div class="templates-grid">
+        <div class="template-card active" data-template="modern">
+          <div class="template-preview modern-preview"></div>
+          <div class="template-name">Modern</div>
+        </div>
+        <div class="template-card" data-template="classic">
+          <div class="template-preview classic-preview"></div>
+          <div class="template-name">Classic</div>
+        </div>
+        <div class="template-card" data-template="creative">
+          <div class="template-preview creative-preview"></div>
+          <div class="template-name">Creative</div>
+        </div>
+        <div class="template-card" data-template="professional">
+          <div class="template-preview professional-preview"></div>
+          <div class="template-name">Professional</div>
+        </div>
+      </div>
+      <div class="template-actions">
+        <button id="apply-template">Apply Template</button>
+      </div>
+    </div>
+
+    <!-- Generated Resume -->
+    <div id="resume-output" class="resume hidden">
+      <div class="resume-actions">
+        <button id="edit-resume"><i class="fas fa-edit"></i> Edit</button>
+        <button id="print-resume"><i class="fas fa-print"></i> Print</button>
+        <button id="download-resume"><i class="fas fa-download"></i> Download PDF</button>
+        <button id="choose-template"><i class="fas fa-palette"></i> Change Template</button>
+      </div>
+      
+      <div id="resume-content" class="modern-template">
+        <!-- Header Section -->
+        <div class="resume-header">
+          <h1 id="out-name"></h1>
+          <p id="out-title"></p>
+          
+          <div class="contact-info">
+            <div class="contact-item"><i class="fas fa-envelope"></i> <span id="out-email"></span></div>
+            <div class="contact-item"><i class="fas fa-phone"></i> <span id="out-phone"></span></div>
+            <div class="contact-item"><i class="fas fa-map-marker-alt"></i> <span id="out-location"></span></div>
+            <div class="contact-item"><i class="fas fa-globe"></i> <span id="out-website"></span></div>
+          </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="resume-section" id="summary-section">
+          <h2 class="section-title">Professional Summary</h2>
+          <p id="out-summary"></p>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="resume-section" id="experience-section">
+          <h2 class="section-title">Work Experience</h2>
+          <div id="out-experience"></div>
+        </div>
+
+        <!-- Education Section -->
+        <div class="resume-section" id="education-section">
+          <h2 class="section-title">Education</h2>
+          <div id="out-education"></div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="resume-section" id="skills-section">
+          <h2 class="section-title">Skills</h2>
+          <div id="out-skills" class="skills-badges"></div>
+          
+          <div id="languages-section">
+            <h3>Languages</h3>
+            <div id="out-languages"></div>
+          </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="resume-section" id="projects-section">
+          <h2 class="section-title">Projects</h2>
+          <div id="out-projects"></div>
+        </div>
+
+        <!-- Additional Info Section -->
+        <div class="resume-section" id="additional-section">
+          <div id="certifications-section" class="additional-subsection">
+            <h3>Certifications</h3>
+            <div id="out-certifications"></div>
+          </div>
+          
+          <div id="volunteer-section" class="additional-subsection">
+            <h3>Volunteer Experience</h3>
+            <div id="out-volunteer"></div>
+          </div>
+          
+          <div id="awards-section" class="additional-subsection">
+            <h3>Awards & Achievements</h3>
+            <div id="out-awards"></div>
+          </div>
+          
+          <div id="interests-section" class="additional-subsection">
+            <h3>Interests</h3>
+            <div id="out-interests"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>© 2024 Professional Resume Builder | All Rights Reserved</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
